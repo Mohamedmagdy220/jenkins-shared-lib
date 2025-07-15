@@ -1,4 +1,5 @@
 def call() {
-    echo "Removing local Docker image..."
-    sh "docker rmi your-dockerhub-username/demo-app:latest || true"
+    def image = "${env.IMAGE_NAME}:${env.IMAGE_TAG}"
+    echo "🧹 Removing local Docker image: ${image}"
+    sh "docker rmi ${image} || true"
 }

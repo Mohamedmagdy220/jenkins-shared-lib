@@ -1,4 +1,5 @@
 def call() {
-    echo "Pushing Docker image to Docker Hub..."
-    sh "docker push your-dockerhub-username/demo-app:latest"
+    def image = "${env.IMAGE_NAME}:${env.IMAGE_TAG}"
+    echo "📤 Pushing Docker image: ${image}"
+    sh "docker push ${image}"
 }

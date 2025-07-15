@@ -1,4 +1,5 @@
 def call() {
-    echo "Scanning Docker image with Trivy..."
-    sh "trivy image your-dockerhub-username/demo-app:latest || true"
+    def image = "${env.IMAGE_NAME}:${env.IMAGE_TAG}"
+    echo "🔍 Scanning Docker image: ${image}"
+    sh "trivy image ${image} || true"
 }
